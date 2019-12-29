@@ -60,16 +60,22 @@ function gameOver(cell) {
     document.getElementById('title').innerText = "PSPSPSPSPSPSPSPS";
 }
 
+function notBomb(cell, t) {
+    if (t % 2 === 0) {
+        cell.classList.add('clicked-notbomb-r');
+    } else {
+        cell.classList.add('clicked-notbomb-m');
+    }
+    cell.classList.remove('empty');
 }
 
 function init() {
-    document.getElementById("start").addEventListener('click', function() {
-        createGrid();
-    });
+    document.getElementById("start").addEventListener('click', createGrid);
 }
 
 function createGrid() {
     restart();
+    document.getElementById('start').innerText = "Restart";
     let v = document.getElementById("inp").value;
     makeRows(v, v);
     gridOn = true;
