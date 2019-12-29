@@ -13,14 +13,16 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
+    cell.innerText = c;
     cell.addEventListener('mouseover', function() {
         changeColor(this, "lightgreen");
     });
     cell.addEventListener('mouseleave', function() {
         changeColor(this, "white");
         });
-    let bomb = Math.floor(Math.random() * 2);
-    if (bomb % 2 === 0) {
+    let bomb = Math.floor(Math.random() * 10);
+    if (bomb % 7 === 0) {
+        numBombs++;
         cell.addEventListener("click", function() {
             bomb(cell);
         });
