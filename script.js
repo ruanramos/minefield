@@ -48,7 +48,17 @@ function makeRows(rows, cols) {
   
 }
 
-function notBomb(cell) {
+function gameOver(cell) {
+    cell.classList.add('clicked-bomb');
+    cell.classList.remove('empty');
+    gameOverCleanUp();
+    var cat = document.createElement('IMG');
+    cat.setAttribute('src', 'cat.jpg')
+    cat.className = 'cat';
+    cat.style.textAlign = "center";
+    document.body.appendChild(cat);
+    document.getElementById('title').innerText = "PSPSPSPSPSPSPSPS";
+}
 
 }
 
