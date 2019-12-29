@@ -82,8 +82,55 @@ function createGrid() {
 }
 
 
+function gameOverCleanUp() {
+    container.innerHTML = "";
+    gridOn = false;
+    numBombs = 0;
+    numMozins = 0;
+    numRuans = 0;
+    document.querySelectorAll('.hide').forEach((element) => {
+        element.style.display = "none";
+    })
+    var btn = document.getElementById('start');
+    btn.innerText = "Try Again";
+    btn.removeEventListener('click', createGrid);
+    btn.addEventListener('click', tryAgain)
+}
+
+function tryAgain() {
+    var btn = document.getElementById('start');
+    btn.innerText = "Start";
+    document.querySelectorAll('.hide').forEach((element) => {
+        element.style.display = "inline";
+    });
+    btn.removeEventListener('click', tryAgain);
+    btn.addEventListener('click', createGrid);
+    numBombs = 0;
+    numMozins = 0;
+    numRuans = 0;
+    let infos = document.querySelectorAll('.info');
+    infos[0].innerHTML = "Number of Bombs: ";
+    infos[1].innerHTML = "Number of Mozins: ";
+    infos[2].innerHTML = "Number of Ruans: ";
+    var cat = document.querySelector(".cat");
+    if (cat) {
+        cat.replaceWith();
+    }
+    document.getElementById('title').innerText = "Mozinfield";
+}
+
 function restart() {
     container.innerHTML = "";
+    document.querySelectorAll('.hide').forEach((element) => {
+        element.style.display = "inline";
+    })
+    numBombs = 0;
+    numMozins = 0;
+    numRuans = 0;
+    let infos = document.querySelectorAll('.info');
+    infos[0].innerHTML = "Number of Bombs: ";
+    infos[1].innerHTML = "Number of Mozins: ";
+    infos[2].innerHTML = "Number of Ruans: ";
 }
 
 init();
