@@ -24,20 +24,28 @@ function makeRows(rows, cols) {
     if (bomb % 7 === 0) {
         numBombs++;
         cell.addEventListener("click", function() {
-            bomb(cell);
+            gameOver(cell);
         });
     } else {
+        let t = Math.floor(Math.random() * 2);
+        if (t % 2 === 0) {
+            numRuans++;
+        } else {
+            numMozins++;
+        }
         cell.addEventListener("click", function() {
-            notBomb(cell);
+            notBomb(cell, t);
         });
     }
     container.appendChild(cell).className = "grid-item";
     cell.classList.add('empty');
   };
-};
 
-function bomb(cell) {
-
+  let infos = document.querySelectorAll('.info');
+  infos[0].innerHTML += numBombs;
+  infos[1].innerHTML += numMozins;
+  infos[2].innerHTML += numRuans;
+  
 }
 
 function notBomb(cell) {
