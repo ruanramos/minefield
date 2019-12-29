@@ -11,7 +11,43 @@
 }
 
 .grid-item {
-    padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
+}
+
+.empty {
+    height: 80px;
+}
+
+.clicked-bomb {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('cat.jpg');
+}
+
+.clicked-notbomb-m {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('mozin.jpg');
+}
+
+.clicked-notbomb-r {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('ruan.jpeg');
+}
+
+.info {
+    display: inline;
+}
+
+h1, #input-div{
+    text-align: center;
+}
+
+.cat {
+    width: 100%;
 }
